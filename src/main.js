@@ -15,9 +15,7 @@ function select_arrow(e){
     target.classList.add('on');
 
     const sibling = Array.prototype.filter.call(ul_shape.children, (el)=>el !== target);
-    for(let li of sibling){
-        li.classList.remove('on');
-    }
+    for(let li of sibling){ li.classList.remove('on');}
 }//select_arrow
 
 function display_result(){
@@ -49,31 +47,57 @@ function display_preview(shape,color,size){
             preview.style.borderLeftColor = color;
             preview.style.marginLeft = `${size}px`;
             break;
+        case "topLeft":
+            preview.style.borderTopColor = color;
+            preview.style.borderLeftColor = color;
+            break;
+        case "topRight":
+            preview.style.borderTopColor = color;
+            preview.style.borderRightColor = color;
+            break;
+        case "bottomLeft":
+            preview.style.borderBottomColor = color;
+            preview.style.borderLeftColor = color;
+            break;
+        case "bottomRight":
+            preview.style.borderBottomColor = color;
+            preview.style.borderRightColor = color;
+            break;
     }
 }//display_preview
 
 function display_code(shape,color,size){
-    const direction = get_direction(shape); 
+    const full_border_color = get_border_color(shape,color); 
     const code = 
 `width:0; height:0;
-margin-${direction}:${size}px;
 border:${size}px solid transparent;
-border-${direction}-color:${color};`;
+${full_border_color}`;
+
     ipt_code.innerHTML = code;
 }//display_code
 
-function get_direction(shape){
+
+function get_border_color(shape,color){
     switch(shape){
         case "top":
-            return "bottom";
+            return `border-bottom-color:${color};`;
         case "bottom":
-            return "top";
+            return `border-top-color:${color};`;
         case "left":
-            return "right";
+            return `border-right-color:${color};`;
         case "right":
-            return "left";
+            return `border-left-color:${color};`;
+        case "topLeft":
+            return `border-top-color:${color}; border-left-color:${color};`;
+        case "topRight":
+            return `border-top-color:${color}; border-right-color:${color};`;
+        case "bottomLeft":
+            return `border-bottom-color:${color}; border-left-color:${color};`;
+        case "bottomRight":
+            return `border-bottom-color:${color}; border-right-color:${color};`;
     }
-}//get_direction
+}//get_border_color
+
 
 function copy_code(){
    ipt_code.select();
