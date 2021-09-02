@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS만으로 화살표 만들기</title>
+<link rel="stylesheet" type="text/css" href="./src/style.css"/>
+<script src="./src/main.js" defer></script>
+</head>
+<body>
+
+<h1>CSS ONLY triangle</h1>
+
+<div id="wrapper">
+    <section id="sect_ipt">
+        <article class="box">
+            <h3 class="title">shape</h3>
+            <ul id="ul_shape">
+                <li class="on" data-shape="top"><span></span></li>
+                <li data-shape="bottom"><span></span></li>
+                <li data-shape="left"><span></span></li>
+                <li data-shape="right"><span></span></li>
+            </ul><!-- ul_shape -->
+        </article><!-- box -->
+
+        <article class="box">
+            <h3 class="title">color</h3>
+            <input id="ipt_color" type="color" value="#40c484"/>
+        </article><!-- box -->
+
+        <article class="box">
+            <h3 class="title">size</h3>
+            <input id="ipt_size" type="number" value="20"/>px
+        </article><!-- box -->
+
+        <button id="btn_make">Make Arrow✨</button>
+    </section><!-- sect_ipt -->
+    
+    <section id="sect_result">
+        <article class="box">
+            <h3 class="title">preview</h3>
+            <div class="preview_wrap">
+                <div id="preview"></div>
+            </div><!-- preview_wrap -->
+        </article>
+
+        <article class="box">
+            <h3 class="title">code</h3>
+            <textarea id="ipt_code" readonly>
+width:0; height:0;
+margin-bottom:20px;
+border:20px solid transparent;
+border-bottom-color:#40c484;</textarea>
+            <button id="btn_copy">copy</button>
+        </article>
+    </section><!-- sect_result -->
+</div><!-- wrapper -->
+
+</body>
+</html>
